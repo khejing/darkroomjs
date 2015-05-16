@@ -63,7 +63,6 @@ Darkroom.prototype = {
   options: {},
 
   constructor: function(element, options, plugins) {
-	Darkroom.Bootstrap();
     this.options = Darkroom.Utils.extend(options, this.defaults);
 
     if (typeof element === 'string')
