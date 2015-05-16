@@ -78,8 +78,8 @@ gulp.task('scripts', function () {
   }
 
   var files = [
-    srcDir + '/js/core/darkroom.js',
     srcDir + '/js/core/bootstrap.js',
+    srcDir + '/js/core/darkroom.js',
     srcDir + '/js/core/*.js',
     // srcDir + '/js/plugins/*.js',
     srcDir + '/js/plugins/darkroom.history.js',
