@@ -21,6 +21,7 @@ var uglify = require('gulp-uglify')
 var srcDir = './lib';
 var distDir = './build';
 var isDebug = !gutil.env.prod;
+var isMin = gutil.env.min;
 
 //
 // Default
@@ -92,7 +93,7 @@ gulp.task('scripts', function () {
     .pipe(isDebug ? sourcemaps.init() : gutil.noop())
       .pipe(concat('darkroom.js', {newLine: ';'}))
       .pipe(inject(svgs, { transform: fileContents }))
-      .pipe(isDebug ? gutil.noop() : uglify({mangle: false}))
+      .pipe(isMin ? uglify({mangle: false}) : gutil.noop())
     .pipe(isDebug ? sourcemaps.write() : gutil.noop())
     .pipe(gulp.dest(distDir))
 })
@@ -105,7 +106,7 @@ gulp.task('styles', function () {
     .pipe(plumber())
     .pipe(isDebug ? sourcemaps.init() : gutil.noop())
       .pipe(sass({
-        outputStyle: isDebug ? 'nested' : 'compressed'
+        outputStyle: isMin ? 'compressed' : 'nested'
       }))
     .pipe(isDebug ? sourcemaps.write() : gutil.noop())
     .pipe(gulp.dest(distDir))
