@@ -78,14 +78,18 @@ gulp.task('scripts', function () {
   }
 
   var files = [
-    srcDir + '/js/core/darkroom.js',
-    srcDir + '/js/core/bootstrap.js',
+    srcDir + '/js/core/darkroom.js',//all the other files use Darkroom global var, so darkroom.js must be first
     srcDir + '/js/core/*.js',
     // srcDir + '/js/plugins/*.js',
     srcDir + '/js/plugins/darkroom.history.js',
     srcDir + '/js/plugins/darkroom.rotate.js',
     srcDir + '/js/plugins/darkroom.crop.js',
-    srcDir + '/js/plugins/darkroom.save.js',
+    //srcDir + '/js/plugins/darkroom.save.js',
+    //srcDir + '/js/plugins/darkroom.brightness.js',
+    //srcDir + '/js/plugins/darkroom.dragndrop.js',
+    //srcDir + '/js/plugins/darkroom.thumbnail.js',
+    //srcDir + '/js/plugins/darkroom.watermark.js',
+    //srcDir + '/js/plugins/darkroom.zoom.js',
   ];
 
   gulp.src(files)
